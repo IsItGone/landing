@@ -4,7 +4,7 @@ import Header from "./components/Header.jsx";
 
 export default function App() {
   return (
-    <main className="flex flex-col items-center min-h-screen size-full bg-gradient-to-b from-[#303A52] to-[#242c41] text-white font-inter">
+    <main className="font-inter flex size-full min-h-screen flex-col items-center bg-gradient-to-b from-[#303A52] to-[#242c41] text-white">
       <div className="container">
         <Header />
         <Hero />

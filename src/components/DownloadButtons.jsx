@@ -25,7 +25,7 @@ export default function DownloadButtons() {
   const ActionBtn = ({ id, label, href, color }) => (
     <a
       href={href}
-      className={`block w-full md:w-auto rounded-md ${color} px-5 py-3 text-center text-sm font-semibold transition`}
+      className={`block w-full rounded-md md:w-auto ${color} px-5 py-3 text-center text-sm font-semibold transition`}
       onMouseEnter={() => {
         if (window.matchMedia("(min-width: 768px)").matches) setOpen(id);
       }}
@@ -46,7 +46,7 @@ export default function DownloadButtons() {
       {open === id && (
         <div
           ref={popRef}
-          className="absolute left-1/2 top-0 z-20 -translate-x-1/2 -translate-y-full rounded-lg border border-[#574B90] bg-[#1f233a] p-4 shadow-lg"
+          className="absolute top-0 left-1/2 z-20 -translate-x-1/2 -translate-y-full rounded-lg border border-[#574B90] bg-[#1f233a] p-4 shadow-lg"
         >
           <QRCodeSVG
             value={store[id]}
@@ -78,7 +78,7 @@ export default function DownloadButtons() {
         href={store.web}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full md:w-auto rounded-md border border-[#574B90] px-5 py-3 text-center text-sm font-semibold text-[#b4aee0] transition hover:bg-[#574B90] hover:text-white"
+        className="w-full rounded-md border border-[#574B90] px-5 py-3 text-center text-sm font-semibold text-[#b4aee0] transition hover:bg-[#574B90] hover:text-white md:w-auto"
       >
         Try on Web
       </a>
