@@ -2,56 +2,73 @@ import { useState, useRef, useEffect } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 
 export default function DownloadButtons() {
-  const store = {
-    ios: 'https://apps.apple.com/app/id000000',
-    android: 'https://play.google.com/store/apps/details?id=com.example',
-    web: 'https://campus-transit.app',
-  };
-  const [showQR, setShowQR] = useState(false);
-  const popRef = useRef(null);
-
-  useEffect(() => {
-    const handler = (e) => {
-      if (popRef.current && !popRef.current.contains(e.target))
-        setShowQR(false);
+    const store = {
+        ios: 'https://apps.apple.com/app/id000000',
+        android: 'https://play.google.com/store/apps/details?id=com.example',
+        web: 'https://isitgone.app',
     };
-    window.addEventListener('click', handler);
-    return () => window.removeEventListener('click', handler);
-  }, []);
 
-  return (
-    <div className="relative inline-block">
-      <a
-        href={store.ios}
-        className="rounded-md bg-[#574B90] px-8 py-3 text-sm font-semibold"
-        onMouseEnter={() => setShowQR(true)}
-        onMouseLeave={() => setShowQR(false)}
-        onClick={(e) => {
-          // 모바일: 탭하면 QR 보여주고 기본 링크 막기
-          if (window.innerWidth < 768) {
-            e.preventDefault();
-            setShowQR((v) => !v);
-          }
-        }}
-      >
-        Download for iOS
-      </a>
+    const [open, setOpen] = useState(null);
+    const popRef = useRef(null);
 
-      {/* Popover */}
-      {showQR && (
-        <div
-          ref={popRef}
-          className="absolute left-full top-1/2 ml-4 -translate-y-1/2 rounded-lg border border-[#574B90] bg-[#1f233a] p-4 shadow-lg"
+    useEffect(() => {
+        const desktop = window.matchMedia('(min-width: 768px)');
+        if (!desktop.matches) return;
+
+        const handler = (e) => {
+            if (popRef.current && !popRef.current.contains(e.target)) setOpen(null);
+        };
+        window.addEventListener('click', handler);
+        return () => window.removeEventListener('click', handler);
+    }, []);
+
+    const ActionBtn = ({ id, label, href, color }) => (
+        <a
+            href={href}
+            className={`block w-full md:w-auto rounded-md ${color} px-8 py-3 text-center text-sm font-semibold transition`}
+            onMouseEnter={() => {
+                if (window.matchMedia('(min-width: 768px)').matches) setOpen(id);
+            }}
+            onMouseLeave={() => {
+                if (window.matchMedia('(min-width: 768px)').matches) setOpen(null);
+            }}
+            onClick={(e) => {
+                const desktop = window.matchMedia('(min-width: 768px)').matches;
+                if (desktop) {
+                    e.preventDefault();
+                    setOpen((v) => (v === id ? null : id));
+                }
+            }}
         >
-          <QRCodeSVG
-            value={store.ios}
-            size={120}
-            fgColor="#574B90"
-            bgColor="transparent"
-          />
-          <p className="mt-1 text-center text-xs text-gray-400">Scan me</p>
+            {label}
+
+            {/* QR Pop‑over – Desktop only */}
+            {open === id && (
+                <div
+                    ref={popRef}
+                    className="absolute left-1/2 top-0 z-20 -translate-x-1/2 -translate-y-full rounded-lg border border-[#574B90] bg-[#1f233a] p-4 shadow-lg"
+                >
+                    <QRCodeSVG value={store[id]} size={110} fgColor="#574B90" bgColor="transparent" />
+                    <p className="mt-1 text-center text-xs text-gray-400">Scan me</p>
+                </div>
+            )}
+        </a>
+    );
+
+    return (
+        <div className="flex flex-col gap-3 md:flex-row md:flex-wrap md:gap-4">
+            <ActionBtn id="ios" label="Download for iOS" href={store.ios} color="bg-[#574B90] hover:bg-[#6a5aa2]" />
+            <ActionBtn id="android" label="Download for Android" href={store.android} color="bg-[#3b4361] hover:bg-[#4b5474]" />
+
+            {/* 웹 체험 – 항상 새 탭 */}
+            <a
+                href={store.web}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full md:w-auto rounded-md border border-[#574B90] px-8 py-3 text-center text-sm font-semibold text-[#b4aee0] transition hover:bg-[#574B90] hover:text-white"
+            >
+                Try on Web
+            </a>
         </div>
-      )}
-    </div>
-  );
+    );
 }
