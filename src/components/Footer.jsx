@@ -6,8 +6,7 @@ export default function Footer() {
     "https://giddy-fruitadens-7bc.notion.site/21425836aa418016b0a9f13084a30ded";
   const year = new Date().getFullYear();
   return (
-    <footer
-      className="w-full mt-auto flex flex-col items-center gap-4 border-t border-white/10 p-8 text-xs text-gray-400 md:flex-row md:justify-between">
+    <footer className="mt-auto flex w-full flex-col items-center gap-4 border-t border-white/10 p-8 text-xs text-gray-400 md:flex-row md:justify-between">
       <div className="flex gap-6 text-center md:text-left">
         <a href={termsLink} className="hover:text-[#867abf]">
           Terms of Service

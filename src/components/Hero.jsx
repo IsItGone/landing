@@ -3,9 +3,8 @@ import screenshot from "../assets/screenshot.png";
 
 export default function Hero() {
   return (
-    <section
-      className="flex-grow mx-auto grid grid-cols-1 gap-10 px-8 py-16 md:grid-cols-2 md:items-start md:gap-20 md:px-10 md:py-14">
-      <div className="order-1 md:order-1 mt-0 md:mt-12">
+    <section className="mx-auto grid flex-grow grid-cols-1 gap-10 px-8 py-16 md:grid-cols-2 md:items-start md:gap-20 md:px-10 md:py-14">
+      <div className="order-1 mt-0 md:order-1 md:mt-12">
         <h1 className="text-4xl leading-tight font-extrabold md:text-5xl">
           Navigate Campus <br className="hidden md:block" /> with Ease
         </h1>
@@ -15,7 +14,7 @@ export default function Hero() {
         </p>
 
         {/* 버튼 (데스크탑) */}
-        <div className="mt-4 md:mt-10 hidden md:block">
+        <div className="mt-4 hidden md:mt-10 md:block">
           <DownloadButtons />
         </div>
       </div>
