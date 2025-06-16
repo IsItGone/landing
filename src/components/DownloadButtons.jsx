@@ -13,7 +13,7 @@ export default function DownloadButtons() {
       className={`group relative block w-full rounded-md md:w-auto ${color} px-5 py-3 text-center text-sm font-semibold transition`}
     >
       {label}
-      <span className="pointer-events-none absolute top-0 left-1/2 z-20 hidden -translate-x-1/2 -translate-y-full rounded-lg border border-[#574B90] bg-[#1f233a] p-3 shadow-lg md:block md:opacity-0 md:transition md:group-hover:translate-y-[-120%] md:group-hover:opacity-100">
+      <span className="pointer-events-none absolute top-full left-1/2 z-20 hidden -translate-x-1/2 translate-y-2 rounded-lg border border-[#574B90] bg-[#1f233a] p-3 shadow-lg md:block md:opacity-0 md:transition md:group-hover:translate-y-4 md:group-hover:opacity-100">
         <QRCodeSVG
           value={store[id]}
           size={110}
@@ -31,19 +31,17 @@ export default function DownloadButtons() {
         id="ios"
         label="Download for iOS"
         href={store.ios}
-        color="bg-[#574B90] hover:bg-[#6a5aa2]"
+        color="bg-[#5B4CCF] hover:bg-[#6759E0]"
       />
       <ActionBtn
         id="android"
         label="Download for Android"
         href={store.android}
-        color="bg-[#3b4361] hover:bg-[#4b5474]"
+        color="bg-[#8F87C0] hover:bg-[#9B92CB]"
       />
       <a
         href={store.web}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full rounded-md border border-[#574B90] px-5 py-3 text-center text-sm font-semibold text-[#b4aee0] transition hover:bg-[#574B90] hover:text-white md:w-auto"
+        className="w-full rounded-md border border-[#7E7BF4] px-5 py-3 text-center text-sm font-semibold text-[#C3C1FF] transition hover:bg-[#ffffff12] hover:text-white md:w-auto"
       >
         Try on Web
       </a>
