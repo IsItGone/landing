@@ -3,7 +3,7 @@ import Carousel from "./Carousel.jsx";
 
 export default function Hero() {
   return (
-    <section className="mx-auto grid flex-grow grid-cols-1 gap-10 px-8 py-16 md:grid-cols-2 md:items-start md:gap-20 md:px-10 md:py-14">
+    <section className="mx-auto grid grid-cols-1 gap-10 px-8 py-16 md:grid-cols-2 md:items-start md:gap-20 md:px-10 md:py-14">
       <div className="order-1 mt-0 md:order-1 md:mt-24">
         <h1 className="text-5xl leading-tight font-extrabold md:text-6xl">
           대전 캠퍼스 셔틀의
