@@ -25,7 +25,7 @@ export default function DownloadButtons() {
   const ActionBtn = ({ id, label, href, color }) => (
     <a
       href={href}
-      className={`block w-full md:w-auto rounded-md ${color} px-8 py-3 text-center text-sm font-semibold transition`}
+      className={`block w-full md:w-auto rounded-md ${color} px-5 py-3 text-center text-sm font-semibold transition`}
       onMouseEnter={() => {
         if (window.matchMedia("(min-width: 768px)").matches) setOpen(id);
       }}
@@ -78,7 +78,7 @@ export default function DownloadButtons() {
         href={store.web}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full md:w-auto rounded-md border border-[#574B90] px-8 py-3 text-center text-sm font-semibold text-[#b4aee0] transition hover:bg-[#574B90] hover:text-white"
+        className="w-full md:w-auto rounded-md border border-[#574B90] px-5 py-3 text-center text-sm font-semibold text-[#b4aee0] transition hover:bg-[#574B90] hover:text-white"
       >
         Try on Web
       </a>
