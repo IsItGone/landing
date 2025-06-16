@@ -1,5 +1,5 @@
 import DownloadButtons from "./DownloadButtons.jsx";
-import screenshot from "../assets/screenshot.png";
+import Carousel from "./Carousel.jsx";
 
 export default function Hero() {
   return (
@@ -20,11 +20,7 @@ export default function Hero() {
       </div>
 
       <div className="order-2 flex justify-center md:order-2 md:justify-end">
-        <img
-          src={screenshot}
-          alt="App phone mock‑up"
-          className="w-2/3 max-w-xs drop-shadow-2xl md:w-80 md:max-w-none"
-        />
+        <Carousel />
       </div>
 
       {/* 버튼 (모바일) */}
