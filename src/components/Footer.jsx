@@ -1,4 +1,4 @@
-export default function Footer(props) {
+export default function Footer() {
   const email = "ddiddhr@gmail.com";
   return (
     <footer className="mt-auto border-t border-white/10 py-8 text-xs text-gray-400">
@@ -20,8 +20,8 @@ export default function Footer(props) {
           >
             Privacy Policy
           </a>
-          <a href={`mailto:${props.email}`} className="hover:text-[#867abf]">
-            {props.email}
+          <a href={`mailto:${email}`} className="hover:text-[#867abf]">
+            {email}
           </a>
         </div>
         <span>@2024 isitgone. All rights reserved.</span>
