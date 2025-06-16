@@ -2,7 +2,7 @@ name: Deploy landing page
 
 on:
   release:
-    types: [ published ]
+    types: [published]
 
 env:
   ENVIRONMENT: prod
@@ -10,7 +10,6 @@ env:
   IMAGE_REPOSITORY: ${{ vars.REGISTRY }}/${{ vars.ORGANIZATION }}/${{ github.event.repository.name }}
   APP_VERSION: ${{ github.event.release.tag_name }}
   HOST: ${{ vars.HOST }}
-
 
 jobs:
   build-and-push:
@@ -25,7 +24,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: 'npm'
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
@@ -40,7 +39,6 @@ jobs:
           tags: |
             ${{ env.IMAGE_REPOSITORY }}:${{ env.APP_VERSION }}
           password: ${{ secrets.GHCR_TOKEN }}
-
 
   update-helm-chart:
     needs: build-and-push
