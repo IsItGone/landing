@@ -1,9 +1,9 @@
 export default function Footer() {
   const email = "ddiddhr@gmail.com";
   const termsLink =
-    "https://giddy-fruitadens-7bc.notion.site/21425836aa418016b0a9f13084a30ded";
+    "https://ddiddhr.notion.site/21425836aa418016b0a9f13084a30ded";
   const policyLink =
-    "https://giddy-fruitadens-7bc.notion.site/21425836aa418016b0a9f13084a30ded";
+    "https://ddiddhr.notion.site/21425836aa4180e09d47c3ead7705291";
   const year = new Date().getFullYear();
   return (
     <footer className="mt-auto flex w-full flex-col items-center gap-4 border-t border-white/10 p-8 text-xs text-gray-400 md:flex-row md:justify-between">
