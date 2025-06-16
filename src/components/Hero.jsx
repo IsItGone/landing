@@ -31,7 +31,7 @@ export default function Hero() {
       </div>
 
       {/* 버튼 (모바일) */}
-      <div className="order-3 md:hidden">
+      <div className="order-3 mt-10 md:hidden">
         <DownloadButtons />
       </div>
     </section>
