@@ -5,7 +5,7 @@ export default function DownloadButtons() {
   const store = {
     ios: "https://apps.apple.com/app/id000000",
     android: "https://play.google.com/store/apps/details?id=com.example",
-    web: "https://isitgone.app",
+    web: "https://isitgone.app"
   };
 
   const [open, setOpen] = useState(null);
