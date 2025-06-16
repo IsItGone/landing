@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import shot1 from "../assets/screenshot1.png";
 import shot2 from "../assets/screenshot2.png";
+import shot3 from "../assets/screenshot3.png";
+import shot4 from "../assets/screenshot4.png";
+import shot5 from "../assets/screenshot5.png";
 import mockup from "../assets/mockup.png";
 
-const shots = [shot1, shot2];
+const shots = [shot1, shot2, shot3, shot4, shot5];
 
 export default function Carousel() {
   const [idx, setIdx] = useState(0); // 현재 인덱스
@@ -14,7 +17,7 @@ export default function Carousel() {
   }, []);
 
   return (
-    <div className="relative aspect-[486/989] w-[300px]">
+    <div className="relative aspect-[484/989] w-[300px]">
       {shots.map((src, i) => (
         <div
           key={src}
@@ -24,7 +27,7 @@ export default function Carousel() {
         >
           <div className="h-full w-full p-[5%]">
             <div
-              className="h-full w-full rounded-[18px] bg-contain bg-center bg-no-repeat"
+              className="h-full w-full scale-[99%] rounded-[10px] bg-contain bg-no-repeat"
               style={{ backgroundImage: `url(${src})` }}
             />
           </div>
