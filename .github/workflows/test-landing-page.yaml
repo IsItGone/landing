@@ -2,7 +2,7 @@ name: Deploy test landing page
 
 on:
   push:
-    branches: ['ci']
+    branches: ['main', 'ci']
 
   workflow_dispatch:
 
@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 jobs:
-  deploy:
+  build-and-upload:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -34,7 +34,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # dist 폴더 업로드
           path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
