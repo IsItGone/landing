@@ -12,6 +12,9 @@ export default {
         md: "2rem",
       },
     },
+    fontFamily: {
+      sans: ["Inter", "Pretendard", "sans-serif"],
+    },
   },
   plugins: [],
 };

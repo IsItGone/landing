@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Inter";
+  src:
+    local("Inter"),
+    url("./assets/fonts/InterVariable.woff2") format("woff2-variations");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Pretendard";
+  src:
+    local("Pretendard"),
+    url("./assets/fonts/PretendardVariable.woff2") format("woff2-variations");
+  font-display: swap;
+}
+@layer base {
+  :root {
+    --font-sans: "Inter", "Pretendard", sans-serif;
+  }
+}
