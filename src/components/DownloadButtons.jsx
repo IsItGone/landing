@@ -27,8 +27,9 @@ export default function DownloadButtons() {
             size={110}
             fgColor="#574B90"
             bgColor="transparent"
+            className="blur-sm"
           />
-          {/*<p className="mt-1 text-center text-sm text-gray-400">Scan me</p>*/}
+          <p className="mt-4 text-center text-sm text-gray-400">Coming Soon!</p>
         </span>
       </a>
     );
